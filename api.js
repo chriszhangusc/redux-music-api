@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const production = process.env.NODE_ENV === 'production';
 const port = production ? process.env.PORT : 3001;
 
-const allowAccess = 'https//redux-music.herokuapp.com/';
+const allowAccess = 'https//redux-music.herokuapp.com';
 
 // Add headers
 app.use((req, res, next) => {
