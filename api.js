@@ -12,10 +12,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const production = process.env.NODE_ENV === 'production';
 const port = production ? process.env.PORT : 3001;
 
+const allowAccess = '//redux-music.herokuapp.com/';
+
 // Add headers
 app.use((req, res, next) => {
    // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin', allowAccess);
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
