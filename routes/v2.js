@@ -1,8 +1,9 @@
 import express from 'express';
 import qs from 'querystring';
-import { fetchCharts } from '../../../api/sc/v2';
-// import { fetchArtist } from '../../../api/sc/v1';
+import { fetchCharts } from '../api/sc/v2';
+
 // The reason why we use a proxy server is that soundcloud api v2 is not public yet
+// There is no way to use it in browser except making a server to fetch for us.
 
 const router = express.Router();
 
