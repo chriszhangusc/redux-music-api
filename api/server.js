@@ -46,6 +46,10 @@ app.use(logger);
 app.use('/sc/api-v1', v1);
 app.use('/sc/api-v2', v2);
 
+app.get('/', function (req, res) {
+    res.send('Get request to homepage');
+});
+
 app.listen(port, () => {
   console.log(`API Server Started at:${port}`);
 });
