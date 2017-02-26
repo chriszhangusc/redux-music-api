@@ -1,18 +1,20 @@
 // This is the API Server that talks to SoundCloud.
-import express from 'express';
-import bodyParser from 'body-parser';
-import v1 from './routes/v1';
-import v2 from './routes/v2';
+var express = require('express');
+var bodyParser = require('body-parser');
+var v1 = require('./routes/v1');
+var v2 = require('./routes/v2');
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-const production = process.env.NODE_ENV === 'production';
-const port = production ? process.env.PORT : 3001;
+// If we are running on heroku, port will be provided as process.env.PORT
+const port = process.env.PORT || 3001;
 
-const allowAccess = 'https://redux-music.herokuapp.com';
+// const allowAccess = 'https://redux-music.herokuapp.com';
+
+const allowAccess = 'http://localhost';
 
 // Add headers
 app.use((req, res, next) => {
