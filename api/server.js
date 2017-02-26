@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const port = process.env.PORT || 3001;
 
 // const allowAccess = 'https://redux-music.herokuapp.com';
-
-const allowAccess = 'http://localhost';
+const allowAccess = 'https://redux-music-test.herokuapp.com';
+// const allowAccess = 'http://localhost';
 
 // Add headers
 app.use((req, res, next) => {
@@ -47,7 +47,7 @@ app.use('/sc/api-v1', v1);
 app.use('/sc/api-v2', v2);
 
 app.get('/', function (req, res) {
-    res.send('Get request to homepage');
+    res.send('Welcome to api server for redux-music!');
 });
 
 app.listen(port, () => {
