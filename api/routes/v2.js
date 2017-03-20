@@ -17,7 +17,7 @@ function convertTrackToV1(trackV2) {
 }
 
 // Endpoints
-// http://localhost:3001/sc/api-v2/charts?kind=top&genre=soundcloud:genres:country&limit=20&offset=0&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea
+// /sc/api-v2/charts?kind=top&genre=soundcloud:genres:country&limit=20&offset=0&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea
 router.get('/charts', (req, res) => {
   let fetchUrl = url.resolve(SC_API_V2, 'charts');
   const kind = encodeURIComponent(req.query.kind);
@@ -29,6 +29,7 @@ router.get('/charts', (req, res) => {
   fetchUrl = `${fetchUrl}?kind=${kind}&genre=${genre}\
 &linked_partitioning=1&limit=${limit}\
 &offset=${offset}&client_id=${clientId}`;
+console.log(fetchUrl);
   fetch(fetchUrl)
     .then(response => response.json())
     .then((json) => {

@@ -1,31 +1,31 @@
 {
-  "name": "redux-music-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node ./index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MiniPekka/redux-music-api.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MiniPekka/redux-music-api/issues"
-  },
-  "homepage": "https://github.com/MiniPekka/redux-music-api#readme",
-  "dependencies": {
-    "babel": "^6.5.2",
-    "babel-preset-es2015": "^6.13.2",
-    "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.18.0",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "humps": "^2.0.0",
-    "isomorphic-fetch": "^2.2.1",
-    "normalizr": "^2.2.1",
-    "soundcloud": "^3.1.2"
-  }
+    "name": "redux-music-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MiniPekka/redux-music-api.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MiniPekka/redux-music-api/issues"
+    },
+    "homepage": "https://github.com/MiniPekka/redux-music-api#readme",
+    "dependencies": {
+        "babel": "^6.5.2",
+        "babel-preset-es2015": "^6.13.2",
+        "babel-preset-stage-0": "^6.5.0",
+        "babel-register": "^6.18.0",
+        "body-parser": "^1.15.2",
+        "express": "^4.14.0",
+        "humps": "^2.0.0",
+        "isomorphic-fetch": "^2.2.1",
+        "normalizr": "^2.2.1",
+        "soundcloud": "^3.1.2"
+    }
 }
