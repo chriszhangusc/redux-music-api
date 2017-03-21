@@ -2,7 +2,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var v1 = require('./routes/v1');
-var v2 = require('./routes/v2');
+import v2 from './routes/v2';
+// import fetch from 'isomorphic-fetch';
+import fetch from 'node-fetch';
+import axios from 'axios';
 
 const app = express();
 
@@ -40,8 +43,8 @@ app.use((req, res, next) => {
 
 // Simple logger
 function logger(req, res, next) {
-  console.log(new Date(), req.method, req.url);
-  next();
+    console.log(new Date(), req.method, req.url);
+    next();
 }
 
 app.use(logger);
@@ -50,5 +53,5 @@ app.use('/sc/api-v1', v1);
 app.use('/sc/api-v2', v2);
 
 app.listen(port, () => {
-  console.log(`API Server Started at:${port}`);
+    console.log(`API Server Started at:${port}`);
 });
