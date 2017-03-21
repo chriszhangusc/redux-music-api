@@ -9,9 +9,10 @@ import { SC_API_V2 } from '../constants/consts.js';
 export async function fetchCharts(genre, clientId, limit, offset, callback) {
     // Should we validate callback?
     try {
-        const chartsFsromSC = await fetchChartsFromSC(genre, clientId, limit, offset);
+        const chartsFromSC = await fetchChartsFromSC(genre, clientId, limit, offset);
         callback(null, transformCharts(chartsFromSC));
     } catch (err) {
+        console.log(err);
         callback(new Error('500: Interval Error'));
     }
 }
