@@ -54,4 +54,5 @@ app.use('/sc/api-v2', v2);
 
 app.listen(port, () => {
     console.log(`API Server Started at:${port}`);
+    console.log(`API server is running in ${process.env.NODE_ENV} mode`);
 });
