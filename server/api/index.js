@@ -3,9 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var v1 = require('./routes/v1');
 import v2 from './routes/v2';
-// import fetch from 'isomorphic-fetch';
-import fetch from 'node-fetch';
-import axios from 'axios';
+import fetch from 'isomorphic-fetch';
 
 const app = express();
 
