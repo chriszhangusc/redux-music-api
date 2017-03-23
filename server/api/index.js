@@ -45,6 +45,12 @@ function logger(req, res, next) {
     next();
 }
 
+const welcomeMessage = 'Welcome to SoundCloud API server! For more details go to: https://github.com/MiniPekka/redux-music-api';
+
+app.get('/', function(req, res){
+    res.send(welcomeMessage);
+});
+
 app.use(logger);
 
 app.use('/sc/api-v1', v1);

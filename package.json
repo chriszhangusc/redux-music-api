@@ -8,7 +8,8 @@
         "dev": "NODE_ENV=development nodemon server/index.js --exec babel-node",
         "clean": "rm -rf build && mkdir build",
         "build-server": "babel -d ./build ./server -s",
-        "build": "npm run clean && npm run build-server"
+        "build": "npm run clean && npm run build-server",
+        "heroku-postbuild": "npm run build"
     },
     "repository": {
         "type": "git",
