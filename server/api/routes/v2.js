@@ -13,7 +13,7 @@ router.get('/charts', async (req, res) => {
     const limit = req.query.limit;
     const offset = req.query.offset;
     const clientId = req.query.client_id;
-
+console.log(limit, offset);
     fetchCharts(genre, clientId, limit, offset, (err, data) => {
         if (err) {
             res.json({ error: err.message });
