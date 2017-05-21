@@ -1,7 +1,12 @@
-// #TODO: REMOVE NORMALIZR!!
 import { CLIENT_ID } from '../../client/constants/Config';
-import { normalizeResponse, constructFetchUrl, makeRequest } from './apiUtils';
-import { artistSchema, trackSchema, commentArraySchema, trackArraySchema, artistArraySchema } from '../schemas';
+import { constructFetchUrl, makeRequest } from './apiUtils';
+import {
+  artistSchema,
+  trackSchema,
+  commentArraySchema,
+  trackArraySchema,
+  artistArraySchema,
+} from '../schemas';
 
 const SC_API_V1 = 'https://api.soundcloud.com/';
 const LIMIT = 20;
@@ -16,8 +21,7 @@ export function fetchTracks(filters, limit) {
     ...filters,
   };
   const fetchUrl = constructFetchUrl(SC_API_V1, endpoint, queryParams);
-  return makeRequest(fetchUrl)
-          .then(response => normalizeResponse(response, trackArraySchema));
+  return makeRequest(fetchUrl);
 }
 
 export function fetchArtists(filters, limit) {
@@ -30,8 +34,7 @@ export function fetchArtists(filters, limit) {
     ...filters,
   };
   const fetchUrl = constructFetchUrl(SC_API_V1, endpoint, queryParams);
-  return makeRequest(fetchUrl)
-          .then(response => normalizeResponse(response, artistArraySchema));
+  return makeRequest(fetchUrl);
 }
 
 /**
@@ -42,15 +45,13 @@ export function fetchArtists(filters, limit) {
 export function fetchTrack(id) {
   const endpoint = `/tracks/${id}`;
   const fetchUrl = constructFetchUrl(SC_API_V1, endpoint, { client_id: CLIENT_ID });
-  return makeRequest(fetchUrl)
-          .then(response => normalizeResponse(response, trackSchema));
+  return makeRequest(fetchUrl);
 }
 
 export function fetchArtist(artistId) {
   const endpoint = `/users/${artistId}`;
   const fetchUrl = constructFetchUrl(SC_API_V1, endpoint, { client_id: CLIENT_ID });
-  return makeRequest(fetchUrl)
-          .then(response => normalizeResponse(response, artistSchema));
+  return makeRequest(fetchUrl);
 }
 
 export function fetchArtistTracks(artistId) {
@@ -62,13 +63,11 @@ export function fetchArtistTracks(artistId) {
     offset: 0,
   };
   const fetchUrl = constructFetchUrl(SC_API_V1, endpoint, queryParams);
-  return makeRequest(fetchUrl)
-          .then(response => normalizeResponse(response, trackArraySchema));
+  return makeRequest(fetchUrl);
 }
 
 export function fetchMoreArtistTracks(nextHref) {
-  return makeRequest(nextHref)
-          .then(response => normalizeResponse(response, trackArraySchema));
+  return makeRequest(nextHref);
 }
 
 // This is the initial fetch
@@ -81,11 +80,9 @@ export function fetchTrackComments(trackId) {
     offset: 0,
   };
   const fetchUrl = constructFetchUrl(SC_API_V1, endpoint, queryParams);
-  return makeRequest(fetchUrl)
-          .then(response => normalizeResponse(response, commentArraySchema));
+  return makeRequest(fetchUrl);
 }
 
 export function fetchMoreTrackComments(nextHref) {
-  return makeRequest(nextHref)
-          .then(response => normalizeResponse(response, commentArraySchema));
+  return makeRequest(nextHref);
 }

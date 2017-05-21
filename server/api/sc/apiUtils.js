@@ -1,7 +1,5 @@
 import url from 'url';
 import qs from 'querystring';
-import { camelizeKeys } from 'humps';
-import { normalize } from 'normalizr';
 
 // Return a promise
 export function onResponseSuccess(response) {
@@ -26,12 +24,4 @@ export function constructFetchUrl(baseUrl, endpoint, queryParams) {
 export function makeRequest(fetchUrl) {
     return fetch(fetchUrl)
           .then(onResponseSuccess);
-}
-
-export function normalizeResponse(camelizedJson, schema) {
-    if (camelizedJson.collection) {
-        const { nextHref, collection } = camelizedJson;
-        return Object.assign({}, normalize(collection, schema), { nextHref });
-    }
-    return Object.assign({}, normalize(camelizedJson, schema));
 }

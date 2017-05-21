@@ -19,7 +19,14 @@ const port = process.env.PORT || 3001;
 app.use((req, res, next) => {
     // http://stackoverflow.com/questions/24897801/enable-access-control-allow-origin-for-multiple-domains-in-nodejs
     // Website you wish to allow to connect
-    var allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'https://redux-music-test.herokuapp.com', 'https://redux-music.herokuapp.com'];
+    var allowedOrigins = [
+      'http://127.0.0.1:3000',
+      'http://localhost:3000',
+      'http://127.0.0.1:8080',
+      'http://localhost:8080',
+      'https://redux-music-test.herokuapp.com',
+      'https://redux-music.herokuapp.com'
+    ];
     var origin = req.headers.origin;
     if (allowedOrigins.indexOf(origin) > -1) {
         res.setHeader('Access-Control-Allow-Origin', origin);
