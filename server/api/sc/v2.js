@@ -5,7 +5,6 @@ import { SC_API_V2 } from '../constants/consts.js';
 
 // Error first callbacks are what nodejs use, to see more error handling go to: https://gist.github.com/MiniPekka/4f835e553da331ad2b67659c9271630f
 
-// #TODO: More professional error handling in NodeJs
 export async function fetchCharts(genre, clientId, limit, offset, callback) {
     // Should we validate callback?
     try {

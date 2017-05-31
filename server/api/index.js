@@ -1,7 +1,6 @@
 // This is the API Server that talks to SoundCloud.
 var express = require('express');
 var bodyParser = require('body-parser');
-var v1 = require('./routes/v1');
 import v2 from './routes/v2';
 import fetch from 'isomorphic-fetch';
 
@@ -59,9 +58,7 @@ app.get('/', function(req, res){
 });
 
 app.use(logger);
-
-app.use('/sc/api-v1', v1);
-app.use('/sc/api-v2', v2);
+app.use('/', v2);
 
 app.listen(port, () => {
     console.log(`API Server Started at:${port}`);
