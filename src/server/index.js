@@ -1,8 +1,7 @@
-// This is the API Server that talks to SoundCloud.
-var express = require('express');
-var bodyParser = require('body-parser');
-import v2 from './routes/v2';
-import fetch from 'isomorphic-fetch';
+const express = require('express');
+const bodyParser = require('body-parser');
+const fetch = require('isomorphic-fetch');
+const routerV2 = require('./routes/v2');
 
 const app = express();
 
@@ -12,13 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // If we are running on heroku, port will be provided as process.env.PORT
 const port = process.env.PORT || 3001;
 
-// const allowAccess = 'https://redux-music.herokuapp.com';
-
 // Add headers
 app.use((req, res, next) => {
-  // http://stackoverflow.com/questions/24897801/enable-access-control-allow-origin-for-multiple-domains-in-nodejs
-  // Website you wish to allow to connect
-  var allowedOrigins = [
+  const allowedOrigins = [
     'http://127.0.0.1:3000',
     'http://localhost:3000',
     'http://127.0.0.1:8080',
@@ -26,19 +21,16 @@ app.use((req, res, next) => {
     'https://redux-music-test.herokuapp.com',
     'https://redux-music.herokuapp.com',
   ];
-  var origin = req.headers.origin;
+  const origin = req.headers.origin;
+
   if (allowedOrigins.indexOf(origin) > -1) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }
 
-  // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
-  // Request headers you wish to allow
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
   res.setHeader('Access-Control-Allow-Credentials', true);
 
   // Pass to next layer of middleware
@@ -54,12 +46,12 @@ function logger(req, res, next) {
 const welcomeMessage =
   'Welcome to SoundCloud API server! For more details go to: https://github.com/MiniPekka/redux-music-api';
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send(welcomeMessage);
 });
 
 app.use(logger);
-app.use('/', v2);
+app.use('/', routerV2);
 
 app.listen(port, () => {
   console.log(`API Server Started at:${port}`);
