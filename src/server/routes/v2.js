@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const { getSCV2FetchUrl } = require('../apiUtils');
 
@@ -7,8 +9,6 @@ const router = express.Router();
 // https://localhost:3001/charts?kind=top&genre=soundcloud:genres:disco&client_id=xxxxxx&limit=20&offset=0&linked_partitioning=1
 router.get('/charts', (request, response) => {
   const scUrl = getSCV2FetchUrl(request.url);
-  // Simply return whatever returned by soundcloud
-  // console.log(scUrl);
   fetch(scUrl)
     .then(res => {
       if (res.ok) return res.json();

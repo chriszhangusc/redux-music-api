@@ -1,3 +1,5 @@
+'use strict';
+
 const { HOST_SC_V2 } = require('./consts');
 
 function getSCV2FetchUrl(url) {
